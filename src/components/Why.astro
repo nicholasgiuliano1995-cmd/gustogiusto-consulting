@@ -1,0 +1,27 @@
+---
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const t = getDict(Astro.props.locale);
+---
+
+<section id="perche" class="bg-navy-soft">
+  <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+    <div class="grid gap-12 lg:grid-cols-12 lg:gap-16">
+      <div class="lg:col-span-5" data-reveal>
+        <p class="eyebrow">{t.why.eyebrow}</p>
+        <h2 class="mt-5 font-display font-semibold leading-tight text-cream" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+          {t.why.title}
+        </h2>
+        <span class="gold-rule mt-8"></span>
+      </div>
+      <div class="space-y-7 lg:col-span-6 lg:col-start-7" data-reveal>
+        {t.why.paras.map((p) => <p class="text-base leading-[1.8] text-cream/75 sm:text-lg">{p}</p>)}
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,52 @@
+---
+import '@fontsource/inter/400.css';
+import '@fontsource/inter/500.css';
+import '@fontsource/inter/600.css';
+import '@fontsource/cormorant-garamond/500.css';
+import '@fontsource/cormorant-garamond/600.css';
+import '@fontsource/cormorant-garamond/500-italic.css';
+import '../styles/global.css';
+import type { Locale } from '../i18n';
+import { alternates, getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  page: 'home' | 'contact';
+  title: string;
+  description: string;
+}
+
+const { locale, page, title, description } = Astro.props;
+const t = getDict(locale);
+const alts = alternates(page);
+const canonical = new URL(t.paths[page], Astro.site);
+const ogImage = new URL('/og.png', Astro.site);
+---
+
+<!doctype html>
+<html lang={t.htmlLang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    {alts.map((a) => <link rel="alternate" hreflang={a.locale} href={new URL(a.href, Astro.site)} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(getDict('it').paths[page], Astro.site)} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="generator" content={Astro.generator} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Gusto Giusto" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === 'it' ? 'it_IT' : locale === 'es' ? 'es_ES' : 'pt_BR'} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="theme-color" content="#1B2A40" />
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

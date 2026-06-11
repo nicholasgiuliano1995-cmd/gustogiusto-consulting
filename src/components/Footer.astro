@@ -1,0 +1,69 @@
+---
+import type { Locale } from '../i18n';
+import { alternates, getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  page: 'home' | 'contact';
+}
+
+const { locale, page } = Astro.props;
+const t = getDict(locale);
+const alts = alternates(page);
+
+// TODO_EMAIL: replace with the real contact email address
+const EMAIL = 'TODO_EMAIL';
+// TODO_WHATSAPP: replace with the real WhatsApp number (international format, digits only in the link)
+const WHATSAPP = 'TODO_WHATSAPP';
+---
+
+<footer class="border-t border-cream/10 bg-navy-deep">
+  <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
+    <div class="grid gap-12 md:grid-cols-3">
+      <div>
+        <p class="font-display text-xl font-semibold tracking-[0.28em] text-cream">GUSTO&nbsp;GIUSTO</p>
+        <span class="gold-rule mt-5"></span>
+        <p class="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">{t.footer.tagline}</p>
+      </div>
+
+      <div class="text-sm">
+        <p class="eyebrow">{t.footer.cities}</p>
+        <ul class="mt-5 space-y-3">
+          <li>
+            <span class="text-cream/45">{t.footer.emailLabel} — </span>
+            <a href={`mailto:${EMAIL}`} class="text-cream/85 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold">{EMAIL}</a>
+          </li>
+          <li>
+            <span class="text-cream/45">{t.footer.whatsappLabel} — </span>
+            <a href={`https://wa.me/${WHATSAPP}`} class="text-cream/85 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold">{WHATSAPP}</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="text-sm">
+        <p class="eyebrow">{t.footer.langLabel}</p>
+        <ul class="mt-5 space-y-3">
+          {
+            alts.map((a) => (
+              <li>
+                <a
+                  href={a.href}
+                  class:list={[
+                    'transition-colors hover:text-gold',
+                    a.locale === locale ? 'text-gold' : 'text-cream/70',
+                  ]}
+                >
+                  {a.locale === 'it' ? 'Italiano' : a.locale === 'es' ? 'Español' : 'Português'}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+    </div>
+
+    <div class="mt-14 border-t border-cream/10 pt-7">
+      <p class="text-xs tracking-wide text-cream/40">{t.footer.rights}</p>
+    </div>
+  </div>
+</footer>
