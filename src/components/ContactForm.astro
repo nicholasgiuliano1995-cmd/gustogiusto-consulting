@@ -1,0 +1,86 @@
+---
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const t = getDict(Astro.props.locale);
+const f = t.contact.form;
+
+// TODO_FORM_ID: create a form at https://formspree.io and replace the ID below.
+const FORMSPREE_ENDPOINT = 'https://formspree.io/f/TODO_FORM_ID';
+---
+
+<form method="POST" action={FORMSPREE_ENDPOINT} class="grid gap-6 sm:grid-cols-2" data-contact-form>
+  <div>
+    <label for="company" class="field-label">{f.company}</label>
+    <input id="company" name="company" type="text" required autocomplete="organization" class="field-input" />
+  </div>
+
+  <div>
+    <label for="country" class="field-label">{f.country}</label>
+    <input id="country" name="country" type="text" required autocomplete="country-name" class="field-input" />
+  </div>
+
+  <div>
+    <label for="sector" class="field-label">{f.sector}</label>
+    <select id="sector" name="sector" required class="field-input">
+      {f.sectorOptions.map((o) => <option value={o.value}>{o.label}</option>)}
+    </select>
+  </div>
+
+  <div>
+    <label for="name" class="field-label">{f.name}</label>
+    <input id="name" name="name" type="text" required autocomplete="name" class="field-input" />
+  </div>
+
+  <div class="sm:col-span-2">
+    <label for="email" class="field-label">{f.email}</label>
+    <input id="email" name="email" type="email" required autocomplete="email" class="field-input" />
+  </div>
+
+  <div class="sm:col-span-2">
+    <label for="message" class="field-label">{f.message}</label>
+    <textarea id="message" name="message" rows="6" required class="field-input resize-y"></textarea>
+  </div>
+
+  <input type="hidden" name="_language" value={t.locale} />
+
+  <div class="sm:col-span-2">
+    <button type="submit" class="btn-gold-solid w-full justify-center sm:w-auto">{f.submit}</button>
+    <p class="mt-4 hidden text-sm font-medium text-navy" data-form-success>{f.success}</p>
+    <p class="mt-4 hidden text-sm font-medium text-red-800" data-form-error>{f.error}</p>
+  </div>
+</form>
+
+<script>
+  // Progressive enhancement: submit via fetch so the visitor stays on the
+  // page. Without JS the form still posts to Formspree directly.
+  const form = document.querySelector<HTMLFormElement>('[data-contact-form]');
+  if (form) {
+    const ok = form.querySelector<HTMLElement>('[data-form-success]');
+    const ko = form.querySelector<HTMLElement>('[data-form-error]');
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      ok?.classList.add('hidden');
+      ko?.classList.add('hidden');
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          body: new FormData(form),
+          headers: { Accept: 'application/json' },
+        });
+        if (res.ok) {
+          form.reset();
+          ok?.classList.remove('hidden');
+        } else {
+          ko?.classList.remove('hidden');
+        }
+      } catch {
+        ko?.classList.remove('hidden');
+      }
+    });
+  }
+</script>

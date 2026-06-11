@@ -1,0 +1,77 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-navy: #1b2a40;
+  --color-navy-deep: #15212f;
+  --color-navy-soft: #243650;
+  --color-cream: #f5edd6;
+  --color-cream-soft: #fbf7ea;
+  --color-gold: #c9a84c;
+  --color-ink: #2a2a26;
+
+  --font-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+
+  --tracking-eyebrow: 0.18em;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+  }
+
+  body {
+    @apply bg-navy font-sans text-cream antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  ::selection {
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+  }
+}
+
+@layer components {
+  .eyebrow {
+    @apply font-sans text-xs font-medium uppercase tracking-eyebrow text-gold;
+  }
+
+  .gold-rule {
+    @apply block h-px w-12 bg-gold;
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center gap-3 rounded-[2px] border border-gold px-7 py-3.5
+      font-sans text-xs font-medium uppercase tracking-eyebrow text-gold
+      transition-colors duration-300 hover:bg-gold hover:text-navy
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .btn-gold-solid {
+    @apply inline-flex items-center gap-3 rounded-[2px] border border-gold bg-gold px-7 py-3.5
+      font-sans text-xs font-medium uppercase tracking-eyebrow text-navy
+      transition-colors duration-300 hover:bg-transparent hover:text-gold
+      focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gold;
+  }
+
+  .nav-link {
+    @apply font-sans text-xs font-medium uppercase tracking-eyebrow text-cream/75
+      transition-colors duration-200 hover:text-gold;
+  }
+
+  .field-label {
+    @apply mb-2 block font-sans text-xs font-medium uppercase tracking-eyebrow text-navy/70;
+  }
+
+  .field-input {
+    @apply w-full rounded-[2px] border border-navy/25 bg-cream-soft px-4 py-3
+      font-sans text-base text-ink placeholder:text-ink/35
+      focus:border-gold focus:outline focus:outline-1 focus:outline-gold;
+  }
+}

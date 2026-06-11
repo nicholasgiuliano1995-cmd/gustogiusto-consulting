@@ -1,0 +1,65 @@
+---
+import Base from '../layouts/Base.astro';
+import Header from './Header.astro';
+import Footer from './Footer.astro';
+import ContactForm from './ContactForm.astro';
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const t = getDict(locale);
+
+// TODO_EMAIL / TODO_WHATSAPP: replace with the real contact details
+const EMAIL = 'TODO_EMAIL';
+const WHATSAPP = 'TODO_WHATSAPP';
+---
+
+<Base locale={locale} page="contact" title={t.meta.contact.title} description={t.meta.contact.description}>
+  <Header locale={locale} page="contact" />
+
+  <main class="bg-cream pt-16 text-ink lg:pt-20">
+    <section class="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:py-28">
+      <div class="grid gap-16 lg:grid-cols-12">
+        <div class="lg:col-span-5">
+          <p class="eyebrow">{t.contact.eyebrow}</p>
+          <h1 class="mt-5 font-display font-semibold leading-tight text-navy" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+            {t.contact.title}
+          </h1>
+          <p class="mt-6 max-w-md text-base leading-[1.75] text-ink/75 sm:text-lg">{t.contact.subline}</p>
+
+          <div class="mt-12 border-t border-navy/15 pt-8">
+            <p class="eyebrow">{t.contact.directTitle}</p>
+            <p class="mt-4 max-w-sm text-sm leading-relaxed text-ink/65">{t.contact.directBody}</p>
+            <ul class="mt-6 space-y-3 text-sm">
+              <li>
+                <span class="text-ink/50">{t.footer.emailLabel} — </span>
+                <a href={`mailto:${EMAIL}`} class="font-medium text-navy underline decoration-gold underline-offset-4 hover:text-gold">{EMAIL}</a>
+              </li>
+              <li>
+                <span class="text-ink/50">{t.footer.whatsappLabel} — </span>
+                <a href={`https://wa.me/${WHATSAPP}`} class="font-medium text-navy underline decoration-gold underline-offset-4 hover:text-gold">{WHATSAPP}</a>
+              </li>
+              <li class="pt-2 text-ink/50">{t.footer.cities}</li>
+            </ul>
+            <p class="mt-8 flex items-center gap-4 font-display text-lg font-medium italic text-navy">
+              <span class="gold-rule !w-8 shrink-0"></span>
+              {t.contact.reassurance}
+            </p>
+          </div>
+        </div>
+
+        <div class="lg:col-span-6 lg:col-start-7">
+          <div class="rounded-[4px] border border-navy/10 border-t-gold bg-cream-soft p-7 sm:p-10">
+            <ContactForm locale={locale} />
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer locale={locale} page="contact" />
+</Base>

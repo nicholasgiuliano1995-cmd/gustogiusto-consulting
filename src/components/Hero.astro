@@ -1,0 +1,41 @@
+---
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const t = getDict(Astro.props.locale);
+---
+
+<section class="relative flex min-h-svh items-center overflow-hidden bg-navy pt-16 lg:pt-20">
+  <canvas id="hero-canvas" aria-hidden="true" class="pointer-events-none absolute inset-0 h-full w-full opacity-60"></canvas>
+
+  <div class="relative mx-auto w-full max-w-7xl px-5 py-24 sm:px-8">
+    <div class="max-w-3xl border-l border-gold/70 pl-6 sm:pl-10" data-hero-content>
+      <h1 class="font-display font-semibold leading-[1.08] text-cream" style="font-size: clamp(2.6rem, 6vw, 4.75rem);">
+        <span class="block" data-hero-line>{t.hero.headlineA}</span>
+        <span class="mt-1 block text-gold" data-hero-line>{t.hero.headlineB}</span>
+      </h1>
+      <p class="mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg" data-hero-line>
+        {t.hero.subline}
+      </p>
+      <div class="mt-12" data-hero-line>
+        <a href={t.paths.contact} class="btn-gold">
+          {t.hero.cta}
+          <span aria-hidden="true">→</span>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <a
+    href={`${t.paths.home}#metodo`}
+    class="absolute bottom-8 left-1/2 hidden -translate-x-1/2 flex-col items-center gap-3 text-cream/50 transition-colors hover:text-gold sm:flex"
+    data-hero-line
+  >
+    <span class="text-[0.65rem] font-medium uppercase tracking-eyebrow">{t.hero.scrollHint}</span>
+    <span aria-hidden="true" class="block h-10 w-px bg-gold/60"></span>
+  </a>
+</section>

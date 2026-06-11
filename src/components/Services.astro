@@ -1,0 +1,33 @@
+---
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const t = getDict(Astro.props.locale);
+---
+
+<section id="consulenza" class="bg-cream text-ink">
+  <div class="mx-auto max-w-7xl px-5 py-24 sm:px-8 lg:py-32">
+    <div class="max-w-2xl" data-reveal>
+      <p class="eyebrow">{t.services.eyebrow}</p>
+      <h2 class="mt-5 font-display font-semibold leading-tight text-navy" style="font-size: clamp(2rem, 4vw, 3.25rem);">
+        {t.services.title}
+      </h2>
+      <p class="mt-6 text-base leading-relaxed text-ink/70 sm:text-lg">{t.services.intro}</p>
+    </div>
+
+    <div class="mt-16 grid gap-8 md:grid-cols-3 lg:mt-20 lg:gap-10">
+      {
+        t.services.cols.map((col) => (
+          <article class="rounded-[4px] border border-navy/10 border-t-gold border-t bg-cream-soft p-8 lg:p-10" data-reveal>
+            <h3 class="font-display text-2xl font-semibold text-navy sm:text-[1.7rem]">{col.title}</h3>
+            <p class="mt-5 text-sm leading-[1.75] text-ink/75 sm:text-base">{col.body}</p>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
