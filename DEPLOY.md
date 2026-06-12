@@ -13,9 +13,9 @@ The production site is generated in the **`dist/`** folder. Upload the **content
 
 | Placeholder | Where | What to do |
 |---|---|---|
-| `TODO_FORM_ID` | `src/components/ContactForm.astro` | Create a free form at [formspree.io](https://formspree.io), copy its ID and replace it in `https://formspree.io/f/TODO_FORM_ID` |
-| `TODO_EMAIL` | `src/components/Footer.astro` and `src/components/ContactPage.astro` | Replace with the real contact email |
-| `TODO_WHATSAPP` | `src/components/Footer.astro` and `src/components/ContactPage.astro` | Replace with the real WhatsApp number. In the `wa.me/` link use international format, digits only (e.g. `79991234567`); for the visible text any format works |
+| `TODO_FORM_ID` | `src/components/ContactForm.astro` | In the Formspree dashboard open the form → the endpoint is `https://formspree.io/f/<ID>`; replace `TODO_FORM_ID` with that ID |
+| ~~`TODO_EMAIL`~~ | done | `gustogiusto@yandex.ru` is set in `Footer.astro` and `ContactPage.astro` |
+| ~~`TODO_WHATSAPP`~~ | done | `+39 329 363 9346` is set in `Footer.astro` and `ContactPage.astro` |
 | `https://www.gustogiusto.example` | `astro.config.mjs` | Replace with the real domain (used for canonical, hreflang and OpenGraph URLs) |
 | `public/og.png` | — | Placeholder social-share image (navy + gold). Replace with a branded 1200×630 image when available |
 | `public/favicon.svg` | — | Placeholder "G" mark. Replace with the final logo when available |

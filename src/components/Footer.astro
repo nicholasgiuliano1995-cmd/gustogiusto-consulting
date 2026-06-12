@@ -11,10 +11,9 @@ const { locale, page } = Astro.props;
 const t = getDict(locale);
 const alts = alternates(page);
 
-// TODO_EMAIL: replace with the real contact email address
-const EMAIL = 'TODO_EMAIL';
-// TODO_WHATSAPP: replace with the real WhatsApp number (international format, digits only in the link)
-const WHATSAPP = 'TODO_WHATSAPP';
+const EMAIL = 'gustogiusto@yandex.ru';
+const WHATSAPP_DISPLAY = '+39 329 363 9346';
+const WHATSAPP_LINK = 'https://wa.me/393293639346';
 ---
 
 <footer class="border-t border-cream/10 bg-navy-deep">
@@ -35,7 +34,7 @@ const WHATSAPP = 'TODO_WHATSAPP';
           </li>
           <li>
             <span class="text-cream/45">{t.footer.whatsappLabel} — </span>
-            <a href={`https://wa.me/${WHATSAPP}`} class="text-cream/85 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold">{WHATSAPP}</a>
+            <a href={WHATSAPP_LINK} class="text-cream/85 underline decoration-gold/50 underline-offset-4 transition-colors hover:text-gold">{WHATSAPP_DISPLAY}</a>
           </li>
         </ul>
       </div>
