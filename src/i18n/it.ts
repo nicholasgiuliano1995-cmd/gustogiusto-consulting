@@ -5,12 +5,12 @@ const it: Dictionary = {
   htmlLang: 'it',
   meta: {
     home: {
-      title: 'Gusto Giusto — Consulenza per l’ingresso nel mercato russo | Vino e Food',
+      title: 'Gusto Giusto Consulting — Consulenza per l’ingresso nel mercato russo | Vino e Food',
       description:
         'Consulenza boutique per produttori di vino e food che vogliono entrare nel mercato russo: degustazioni con buyer professionisti, ricerca importatori, supporto legale ed export management a Mosca e San Pietroburgo.',
     },
     contact: {
-      title: 'Contatti — Gusto Giusto',
+      title: 'Contatti — Gusto Giusto Consulting',
       description:
         'Parliamo del vostro ingresso nel mercato russo. Prima call conoscitiva gratuita. Rispondiamo entro 24 ore.',
     },
@@ -192,7 +192,7 @@ const it: Dictionary = {
     emailLabel: 'Email',
     whatsappLabel: 'WhatsApp',
     langLabel: 'Lingua',
-    rights: '© 2026 Gusto Giusto. Tutti i diritti riservati.',
+    rights: '© 2026 Gusto Giusto Consulting. Tutti i diritti riservati.',
   },
   contact: {
     eyebrow: 'Contatti',

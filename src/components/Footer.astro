@@ -1,4 +1,5 @@
 ---
+import Amphora from './Amphora.astro';
 import type { Locale } from '../i18n';
 import { alternates, getDict } from '../i18n';
 
@@ -20,7 +21,13 @@ const WHATSAPP_LINK = 'https://wa.me/393293639346';
   <div class="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:py-20">
     <div class="grid gap-12 md:grid-cols-3">
       <div>
-        <p class="font-display text-xl font-semibold tracking-[0.28em] text-cream">GUSTO&nbsp;GIUSTO</p>
+        <div class="flex items-center gap-3 text-cream">
+          <Amphora class="h-10 w-10 shrink-0 text-gold" />
+          <span class="flex flex-col">
+            <span class="font-display text-xl font-semibold leading-none tracking-[0.22em]">GUSTO&nbsp;GIUSTO</span>
+            <span class="mt-1.5 font-sans text-[0.55rem] font-medium uppercase leading-none tracking-[0.5em] text-gold">Consulting</span>
+          </span>
+        </div>
         <span class="gold-rule mt-5"></span>
         <p class="mt-5 max-w-xs text-sm leading-relaxed text-cream/60">{t.footer.tagline}</p>
       </div>

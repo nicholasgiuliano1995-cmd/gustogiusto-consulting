@@ -7,16 +7,9 @@ interface Props {
 }
 
 const t = getDict(Astro.props.locale);
-
-// Stations sit at the horizontal centre of each of the 4 equal panels:
-// 12.5% / 37.5% / 62.5% / 87.5% of the track. The SVG path below passes
-// through y=180 (of 250) at exactly those x positions so the HTML node
-// dots, placed at top:72% / left:50% of each panel, sit on the line.
-const routePath =
-  'M 0 206 C 55 206 85 180 125 180 S 215 216 250 212 S 340 180 375 180 S 470 140 500 144 S 590 180 625 180 S 720 212 750 208 S 840 180 875 180 S 965 150 1000 146';
 ---
 
-<section id="metodo" class="bg-navy" data-route>
+<section id="metodo" class="bg-navy">
   <div class="mx-auto max-w-7xl px-5 pt-24 sm:px-8 lg:pt-32">
     <div class="max-w-2xl" data-reveal>
       <p class="eyebrow">{t.route.eyebrow}</p>
@@ -27,83 +20,70 @@ const routePath =
     </div>
   </div>
 
-  {/* Stage: pinned on desktop, plain vertical flow on mobile */}
-  <div class="relative mt-16 lg:mt-0 lg:h-svh lg:overflow-hidden" data-route-stage>
-    {/* Mobile vertical line */}
-    <div aria-hidden="true" class="absolute bottom-0 left-7 top-0 w-px bg-gold/20 sm:left-10 lg:hidden">
-      <div class="h-full w-full origin-top bg-gold/70" data-route-vline></div>
+  {/* The route: one continuous vertical gold line, drawn as you scroll. */}
+  <div class="relative mx-auto max-w-7xl px-5 pt-16 sm:px-8 lg:pt-24" data-route-stage>
+    <div aria-hidden="true" class="absolute bottom-0 left-[2.4rem] top-0 w-px bg-gold/15 sm:left-[3.9rem] lg:left-1/2 lg:-translate-x-1/2">
+      <div class="h-full w-full origin-top bg-gold/80" data-route-vline></div>
     </div>
 
-    <div class="relative flex flex-col gap-24 pb-24 lg:h-full lg:w-max lg:flex-row lg:gap-0 lg:pb-0" data-route-track>
-      {/* Desktop route line, spanning the full track behind the panels */}
-      <svg
-        aria-hidden="true"
-        class="absolute inset-0 hidden h-full w-full lg:block"
-        viewBox="0 0 1000 250"
-        preserveAspectRatio="none"
-      >
-        <path d={routePath} fill="none" stroke="#C9A84C" stroke-opacity="0.18" stroke-width="1.5" vector-effect="non-scaling-stroke"></path>
-        <path d={routePath} fill="none" stroke="#C9A84C" stroke-width="1.5" vector-effect="non-scaling-stroke" data-route-path></path>
-      </svg>
+    <p class="relative pb-14 pl-12 text-[0.65rem] font-medium uppercase tracking-eyebrow text-cream/45 sm:pl-16 lg:pl-0 lg:text-center">
+      <span aria-hidden="true" class="absolute left-[2.4rem] top-[0.1rem] h-2 w-2 -translate-x-1/2 rounded-full bg-gold/60 sm:left-[3.9rem] lg:left-1/2"></span>
+      {t.route.origin}
+    </p>
 
-      {/* Origin / destination labels (desktop) */}
-      <p aria-hidden="true" class="absolute left-[1.5vw] top-[72%] hidden -translate-y-9 text-[0.65rem] font-medium uppercase tracking-eyebrow text-cream/45 lg:block">
-        {t.route.origin}
-      </p>
-      <p class="absolute right-[1.5vw] top-[72%] hidden -translate-y-[4.5rem] text-right text-[0.65rem] font-medium uppercase tracking-eyebrow text-gold lg:block" data-route-dest>
-        {t.route.destination} <span aria-hidden="true">→</span>
-      </p>
-
-      {/* Origin label (mobile) */}
-      <p class="pl-14 pt-2 text-[0.65rem] font-medium uppercase tracking-eyebrow text-cream/45 sm:pl-20 lg:hidden" style="margin-bottom:-3rem;">
-        {t.route.origin}
-      </p>
-
+    <ol class="space-y-20 lg:space-y-28">
       {
-        t.route.phases.map((phase) => (
-          <article class="relative pl-14 pr-5 sm:pl-20 sm:pr-8 lg:flex lg:h-full lg:w-[80vw] lg:shrink-0 lg:items-center lg:px-[5vw]" data-route-station>
-            {/* Node dot: on the vertical line (mobile) / on the SVG line (desktop) */}
+        t.route.phases.map((phase, i) => (
+          <li class="relative" data-route-station>
             <span
               aria-hidden="true"
-              class="absolute left-7 top-1 h-3 w-3 -translate-x-1/2 rounded-full border border-gold bg-navy sm:left-10 lg:left-1/2 lg:top-[72%] lg:-translate-y-1/2"
+              class="absolute left-[2.4rem] top-2 h-3 w-3 -translate-x-1/2 rounded-full border border-gold bg-navy sm:left-[3.9rem] lg:left-1/2"
               data-route-dot
             />
-            <div class="flex flex-col gap-5 sm:flex-row sm:gap-10 lg:w-full lg:-translate-y-[6%]" data-route-content>
-              <div class="font-display font-medium leading-[0.8] text-gold" style="font-size: clamp(5.5rem, 14vh, 10rem);" aria-hidden="true">
-                {phase.num}
-              </div>
-              <div class="max-w-xl lg:max-w-2xl">
-                <p class="eyebrow">
-                  {t.route.phaseLabel} {phase.num} — {phase.duration}
-                </p>
-                <h3 class="mt-3 font-display text-3xl font-semibold leading-tight text-cream sm:text-4xl">{phase.title}</h3>
-                <p class="mt-4 text-sm leading-relaxed text-cream/70 sm:text-base">{phase.summary}</p>
-                <ul class="mt-6 grid gap-x-8 gap-y-2.5 text-sm leading-snug text-cream/60 lg:grid-cols-2">
-                  {phase.bullets.map((b) => (
-                    <li class="flex gap-3">
-                      <span aria-hidden="true" class="mt-[0.65em] h-px w-4 shrink-0 bg-gold/70" />
-                      <span>{b}</span>
-                    </li>
-                  ))}
-                </ul>
-                <p class="mt-6 border-l border-gold pl-4 text-sm leading-snug sm:text-base">
-                  <span class="font-medium uppercase tracking-eyebrow text-gold" style="font-size: 0.65rem;">{t.route.deliverableLabel}</span>
-                  <span class="mt-1 block text-cream/85">{phase.deliverable}</span>
-                </p>
+            <div
+              class:list={[
+                'pl-12 sm:pl-16 lg:w-[calc(50%-4.5rem)] lg:pl-0',
+                i % 2 === 1 ? 'lg:ml-auto' : 'lg:mr-auto',
+              ]}
+              data-route-content
+            >
+              <div class="flex flex-col gap-4 sm:flex-row sm:gap-8">
+                <div class="font-display font-medium leading-[0.8] text-gold" style="font-size: clamp(4.5rem, 9vw, 7.5rem);" aria-hidden="true">
+                  {phase.num}
+                </div>
+                <div>
+                  <p class="eyebrow">
+                    {t.route.phaseLabel} {phase.num} — {phase.duration}
+                  </p>
+                  <h3 class="mt-3 font-display text-3xl font-semibold leading-tight text-cream sm:text-4xl">{phase.title}</h3>
+                  <p class="mt-4 text-sm leading-relaxed text-cream/70 sm:text-base">{phase.summary}</p>
+                  <ul class="mt-6 space-y-2.5 text-sm leading-snug text-cream/60">
+                    {phase.bullets.map((b) => (
+                      <li class="flex gap-3">
+                        <span aria-hidden="true" class="mt-[0.65em] h-px w-4 shrink-0 bg-gold/70" />
+                        <span>{b}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <p class="mt-6 border-l border-gold pl-4 text-sm leading-snug sm:text-base">
+                    <span class="font-medium uppercase tracking-eyebrow text-gold" style="font-size: 0.65rem;">{t.route.deliverableLabel}</span>
+                    <span class="mt-1 block text-cream/85">{phase.deliverable}</span>
+                  </p>
+                </div>
               </div>
             </div>
-          </article>
+          </li>
         ))
       }
+    </ol>
 
-      {/* Destination label (mobile) */}
-      <p class="-mt-12 pl-14 text-[0.65rem] font-medium uppercase tracking-eyebrow text-gold sm:pl-20 lg:hidden">
-        {t.route.destination} <span aria-hidden="true">→</span>
-      </p>
-    </div>
+    <p class="relative pb-4 pl-12 pt-16 text-[0.65rem] font-medium uppercase tracking-eyebrow text-gold sm:pl-16 lg:pl-0 lg:text-center" data-route-dest>
+      <span aria-hidden="true" class="absolute bottom-[1.65rem] left-[2.4rem] h-2.5 w-2.5 -translate-x-1/2 rounded-full bg-gold sm:left-[3.9rem] lg:left-1/2"></span>
+      <span class="lg:block lg:pt-5">{t.route.destination} <span aria-hidden="true">→</span></span>
+    </p>
   </div>
 
-  <div class="mx-auto max-w-7xl px-5 pb-24 sm:px-8 lg:pb-28">
+  <div class="mx-auto max-w-7xl px-5 pb-24 pt-16 sm:px-8 lg:pb-28">
     <div class="flex items-center gap-6 border-t border-cream/10 pt-10" data-reveal>
       <span class="gold-rule shrink-0"></span>
       <p class="font-display text-lg font-medium italic text-cream/80 sm:text-xl">{t.route.note}</p>

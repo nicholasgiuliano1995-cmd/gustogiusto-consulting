@@ -45,132 +45,63 @@ function initReveals() {
   });
 }
 
+// One implementation for every screen size — no pinning, no scroll hijacking:
+// the vertical gold line draws itself in step with the scroll and each
+// station fades in as it enters the viewport. Deliberately boring tech so it
+// works on every browser, trackpad and zoom level.
 function initRoute() {
   const stage = document.querySelector<HTMLElement>('[data-route-stage]');
-  const track = document.querySelector<HTMLElement>('[data-route-track]');
-  if (!stage || !track) return;
+  if (!stage) return;
 
-  const mm = gsap.matchMedia();
-
-  // Desktop: pin the stage and scrub the horizontal journey + line drawing.
-  mm.add('(min-width: 1024px)', () => {
-    const path = document.querySelector<SVGPathElement>('[data-route-path]');
-    const stations = gsap.utils.toArray<HTMLElement>('[data-route-station]');
-    const distance = () => track.scrollWidth - window.innerWidth;
-
-    const journey = gsap.timeline({
-      defaults: { ease: 'none' },
-      scrollTrigger: {
-        trigger: stage,
-        start: 'top top',
-        end: () => '+=' + distance() * 1.05,
-        pin: true,
-        scrub: 1,
-        anticipatePin: 1,
-        invalidateOnRefresh: true,
-      },
-    });
-
-    journey.to(track, { x: () => -distance() }, 0);
-
-    if (path) {
-      const len = path.getTotalLength();
-      // The line starts drawn up to just before station 1 and completes
-      // exactly as the journey ends at the destination marker.
-      gsap.set(path, { strokeDasharray: len, strokeDashoffset: len * 0.9 });
-      journey.to(path, { strokeDashoffset: 0 }, 0);
-    }
-
-    stations.forEach((station) => {
-      const content = station.querySelector<HTMLElement>('[data-route-content]');
-      const dot = station.querySelector<HTMLElement>('[data-route-dot]');
-      if (content) {
-        gsap.from(content, {
-          autoAlpha: 0,
-          y: 56,
-          duration: 0.7,
-          ease: 'power2.out',
-          scrollTrigger: {
-            trigger: station,
-            containerAnimation: journey,
-            start: 'left 72%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      }
-      if (dot) {
-        gsap.to(dot, {
-          backgroundColor: '#C9A84C',
-          scale: 1.5,
-          duration: 0.4,
-          scrollTrigger: {
-            trigger: station,
-            containerAnimation: journey,
-            start: 'center 70%',
-            toggleActions: 'play none none reverse',
-          },
-        });
-      }
-    });
-
-    const dest = document.querySelector<HTMLElement>('[data-route-dest]');
-    if (dest) {
-      gsap.from(dest, {
-        autoAlpha: 0,
-        x: 24,
-        duration: 0.6,
+  const vline = stage.querySelector<HTMLElement>('[data-route-vline]');
+  if (vline) {
+    gsap.fromTo(
+      vline,
+      { scaleY: 0 },
+      {
+        scaleY: 1,
+        ease: 'none',
         scrollTrigger: {
-          trigger: stations[stations.length - 1],
-          containerAnimation: journey,
-          start: 'center 88%',
-          toggleActions: 'play none none reverse',
+          trigger: stage,
+          start: 'top 70%',
+          end: 'bottom 78%',
+          scrub: true,
         },
+      }
+    );
+  }
+
+  gsap.utils.toArray<HTMLElement>('[data-route-station]').forEach((station) => {
+    const content = station.querySelector<HTMLElement>('[data-route-content]');
+    const dot = station.querySelector<HTMLElement>('[data-route-dot]');
+    if (content) {
+      gsap.from(content, {
+        autoAlpha: 0,
+        y: 36,
+        duration: 0.8,
+        ease: 'power2.out',
+        scrollTrigger: { trigger: station, start: 'top 80%' },
+      });
+    }
+    if (dot) {
+      gsap.to(dot, {
+        backgroundColor: '#C9A84C',
+        scale: 1.4,
+        duration: 0.4,
+        scrollTrigger: { trigger: station, start: 'top 75%' },
       });
     }
   });
 
-  // Mobile / tablet: vertical line scales as the section scrolls through.
-  mm.add('(max-width: 1023px)', () => {
-    const vline = document.querySelector<HTMLElement>('[data-route-vline]');
-    if (vline) {
-      gsap.fromTo(
-        vline,
-        { scaleY: 0 },
-        {
-          scaleY: 1,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: stage,
-            start: 'top 75%',
-            end: 'bottom 70%',
-            scrub: true,
-          },
-        }
-      );
-    }
-
-    gsap.utils.toArray<HTMLElement>('[data-route-station]').forEach((station) => {
-      const content = station.querySelector<HTMLElement>('[data-route-content]');
-      const dot = station.querySelector<HTMLElement>('[data-route-dot]');
-      if (content) {
-        gsap.from(content, {
-          autoAlpha: 0,
-          y: 36,
-          duration: 0.8,
-          ease: 'power2.out',
-          scrollTrigger: { trigger: station, start: 'top 80%' },
-        });
-      }
-      if (dot) {
-        gsap.to(dot, {
-          backgroundColor: '#C9A84C',
-          scale: 1.4,
-          duration: 0.4,
-          scrollTrigger: { trigger: station, start: 'top 75%' },
-        });
-      }
+  const dest = document.querySelector<HTMLElement>('[data-route-dest]');
+  if (dest) {
+    gsap.from(dest, {
+      autoAlpha: 0,
+      y: 16,
+      duration: 0.6,
+      scrollTrigger: { trigger: dest, start: 'top 88%' },
     });
-  });
+  }
 }
 
 /** Slow drift of faint gold particles behind the hero. Deliberately quiet. */
