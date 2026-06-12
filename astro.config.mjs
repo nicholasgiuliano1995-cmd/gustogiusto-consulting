@@ -2,9 +2,9 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 
-// TODO: replace with the real production domain before going live
+// Live Cloudflare Pages URL — swap for the custom domain when one is connected
 // (used for canonical URLs, hreflang and OpenGraph tags).
-const SITE = 'https://www.gustogiusto.example';
+const SITE = 'https://gustogiusto-consulting.pages.dev';
 
 export default defineConfig({
   site: SITE,
