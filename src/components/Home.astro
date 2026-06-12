@@ -18,6 +18,26 @@ interface Props {
 
 const { locale } = Astro.props;
 const t = getDict(locale);
+
+// Structured data for search engines (rich results / knowledge panel).
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: 'Gusto Giusto Consulting',
+  description: t.meta.home.description,
+  url: new URL(t.paths.home, Astro.site).href,
+  email: 'gustogiusto@yandex.ru',
+  founder: [
+    { '@type': 'Person', name: 'Andrey Petrov', jobTitle: 'Import Manager' },
+    { '@type': 'Person', name: 'Nicholas Giuliano', jobTitle: 'AIS Russia Representative' },
+  ],
+  knowsLanguage: ['it', 'es', 'pt', 'ru', 'en'],
+  areaServed: ['IT', 'ES', 'PT', 'BR', 'AR', 'CL', 'RU'],
+  address: [
+    { '@type': 'PostalAddress', addressLocality: 'Moscow', addressCountry: 'RU' },
+    { '@type': 'PostalAddress', addressLocality: 'Saint Petersburg', addressCountry: 'RU' },
+  ],
+};
 ---
 
 <Base locale={locale} page="home" title={t.meta.home.title} description={t.meta.home.description}>
@@ -33,6 +53,7 @@ const t = getDict(locale);
   </main>
   <Footer locale={locale} page="home" />
 
+  <script type="application/ld+json" set:html={JSON.stringify(structuredData)} is:inline />
   <script>
     import '../scripts/home';
   </script>
