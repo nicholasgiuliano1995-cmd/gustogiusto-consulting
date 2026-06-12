@@ -39,7 +39,7 @@ const it: Dictionary = {
     body: 'Niente call center, niente intermediari: ogni azienda lavora direttamente con noi, dal primo contatto alla firma con l’importatore. Siamo basati a Mosca e San Pietroburgo e lavoriamo con una rete di sommelier professionisti locali, tra vino, food e travel. Conosciamo questo mercato dall’interno: le persone, i prezzi, le regole.',
     team: [
       {
-        name: 'Andrey',
+        name: 'Andrey Petrov',
         role: 'Import Manager — oltre 15 anni di esperienza',
         bio: 'Da più di quindici anni gestisce l’import di vino sul mercato russo: conosce personalmente importatori e buyer, sa che cosa comprano e a quali condizioni. È l’esperienza che trasforma una degustazione in un contratto.',
       },
