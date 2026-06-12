@@ -21,6 +21,9 @@ const t = getDict(Astro.props.locale);
       <p class="mt-8 max-w-xl text-base leading-relaxed text-cream/75 sm:text-lg" data-hero-line>
         {t.hero.subline}
       </p>
+      <p class="mt-5 text-xs font-medium uppercase tracking-eyebrow text-gold/90" data-hero-line>
+        {t.hero.personal}
+      </p>
       <div class="mt-12" data-hero-line>
         <a href={t.paths.contact} class="btn-gold">
           {t.hero.cta}

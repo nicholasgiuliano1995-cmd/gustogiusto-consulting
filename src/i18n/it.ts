@@ -29,13 +29,28 @@ const it: Dictionary = {
     headlineB: 'Noi sappiamo come portarcelo.',
     subline:
       'Consulenza boutique per produttori di vino e food: dalla prima degustazione professionale alla firma con l’importatore.',
+    personal: 'Gestito personalmente da Nicholas e Andrey — Mosca · San Pietroburgo',
     cta: 'Parliamone',
     scrollHint: 'Scoprite il metodo',
   },
   about: {
     eyebrow: 'Chi siamo',
-    title: 'Italiani a Mosca, di mestiere.',
-    body: 'Gusto Giusto è una società di consulenza a gestione italiana con base a Mosca e San Pietroburgo. Lavoriamo con una rete di sommelier professionisti locali e con un’esperienza pluriennale di export management del vino sul mercato russo, operando tra vino, food e travel. Conosciamo questo mercato dall’interno: le persone, i prezzi, le regole.',
+    title: 'Dietro Gusto Giusto ci siamo noi due.',
+    body: 'Niente call center, niente intermediari: ogni azienda lavora direttamente con noi, dal primo contatto alla firma con l’importatore. Siamo basati a Mosca e San Pietroburgo e lavoriamo con una rete di sommelier professionisti locali, tra vino, food e travel. Conosciamo questo mercato dall’interno: le persone, i prezzi, le regole.',
+    team: [
+      {
+        name: 'Andrey',
+        role: 'Import Manager — oltre 15 anni di esperienza',
+        bio: 'Da più di quindici anni gestisce l’import di vino sul mercato russo: conosce personalmente importatori e buyer, sa che cosa comprano e a quali condizioni. È l’esperienza che trasforma una degustazione in un contratto.',
+      },
+      {
+        name: 'Nicholas Giuliano',
+        role: 'Referente AIS Russia',
+        bio: 'Sommelier e referente per la Russia dell’Associazione Italiana Sommelier. È il vostro primo interlocutore, in italiano: cura la relazione con le cantine e coordina le degustazioni professionali, passo per passo.',
+      },
+    ],
+    togetherCaption: 'Nicholas e Andrey',
+    trust: 'Quando ci scrivete, rispondiamo noi. Quando i vostri vini vengono degustati, ci siamo noi al tavolo.',
     stats: [
       { line: 'Mosca · San Pietroburgo', caption: 'Presenza diretta nelle due capitali del mercato' },
       { line: 'Sommelier professionisti locali', caption: 'Una rete che degusta, giudica e apre porte' },
@@ -50,6 +65,7 @@ const it: Dictionary = {
     origin: 'La vostra cantina',
     destination: 'Il mercato russo',
     phaseLabel: 'Fase',
+    deliverableLabel: 'Cosa ricevete',
     phases: [
       {
         num: '1',
@@ -64,6 +80,7 @@ const it: Dictionary = {
           'Degustazione professionale riservata con 3–4 sommelier a Mosca e San Pietroburgo',
           'Report con valutazione chiara e raccomandazione strategica: proseguire o no',
         ],
+        deliverable: 'Un report di degustazione professionale con una raccomandazione netta: proseguire o no.',
       },
       {
         num: '2',
@@ -79,6 +96,7 @@ const it: Dictionary = {
           'Presentazioni professionali B2B/B2C e schede tecniche',
           'Roadmap strategica completa',
         ],
+        deliverable: 'La roadmap strategica, la Short List di almeno 5 importatori e le presentazioni B2B pronte all’uso.',
       },
       {
         num: '3',
@@ -94,6 +112,7 @@ const it: Dictionary = {
           'Raccolta e analisi del feedback professionale',
           'Report finale con raccomandazioni',
         ],
+        deliverable: 'Il report finale con il feedback diretto dei buyer e i prossimi passi concreti.',
       },
       {
         num: '4',
@@ -108,9 +127,16 @@ const it: Dictionary = {
           'Supporto su contratti e certificazione',
           'Documenti di export e gestione degli ordini',
         ],
+        deliverable: 'Un export manager dedicato sul mercato russo, senza aprire una sede in Russia.',
       },
     ],
     note: 'Tempi complessivi Fasi 1–3: 6–8 mesi. Condizioni economiche su richiesta.',
+  },
+  photos: {
+    tastingAlt: 'Degustazione professionale con sommelier e buyer a Mosca',
+    tastingCaption: 'Degustazione professionale riservata — Mosca',
+    presentingAlt: 'Nicholas presenta un vino durante una degustazione',
+    presentingCaption: 'La presentazione dei vostri vini ai professionisti del mercato',
   },
   services: {
     eyebrow: 'Consulenza 360°',

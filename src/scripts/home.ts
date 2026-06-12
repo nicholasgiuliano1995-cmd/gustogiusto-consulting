@@ -7,10 +7,17 @@ const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matc
 // visible: every hidden/offset state below is applied by GSAP only.
 if (!reducedMotion) {
   gsap.registerPlugin(ScrollTrigger);
+  ScrollTrigger.config({ ignoreMobileResize: true });
   initHeroIntro();
   initHeroCanvas();
   initReveals();
   initRoute();
+
+  // Pin/scrub positions depend on final layout: re-measure once the
+  // self-hosted fonts and all assets have loaded, or the route section
+  // can stall mid-journey on slower connections.
+  document.fonts?.ready.then(() => ScrollTrigger.refresh());
+  window.addEventListener('load', () => ScrollTrigger.refresh());
 }
 
 function initHeroIntro() {
@@ -56,7 +63,7 @@ function initRoute() {
       scrollTrigger: {
         trigger: stage,
         start: 'top top',
-        end: () => '+=' + distance() * 1.15,
+        end: () => '+=' + distance() * 1.05,
         pin: true,
         scrub: 1,
         anticipatePin: 1,

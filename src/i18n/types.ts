@@ -4,6 +4,13 @@ export interface Phase {
   duration: string;
   summary: string;
   bullets: string[];
+  deliverable: string;
+}
+
+export interface TeamMember {
+  name: string;
+  role: string;
+  bio: string;
 }
 
 export interface Dictionary {
@@ -26,6 +33,7 @@ export interface Dictionary {
     headlineA: string;
     headlineB: string;
     subline: string;
+    personal: string;
     cta: string;
     scrollHint: string;
   };
@@ -33,6 +41,9 @@ export interface Dictionary {
     eyebrow: string;
     title: string;
     body: string;
+    team: TeamMember[];
+    togetherCaption: string;
+    trust: string;
     stats: { line: string; caption: string }[];
   };
   route: {
@@ -42,8 +53,15 @@ export interface Dictionary {
     origin: string;
     destination: string;
     phaseLabel: string;
+    deliverableLabel: string;
     phases: Phase[];
     note: string;
+  };
+  photos: {
+    tastingAlt: string;
+    tastingCaption: string;
+    presentingAlt: string;
+    presentingCaption: string;
   };
   services: {
     eyebrow: string;
