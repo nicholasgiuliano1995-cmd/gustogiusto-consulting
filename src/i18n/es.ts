@@ -29,13 +29,28 @@ const es: Dictionary = {
     headlineB: 'Nosotros sabemos cómo llevarlo hasta allí.',
     subline:
       'Consultoría boutique para productores de vino y alimentación: de la primera cata profesional a la firma con el importador.',
+    personal: 'Gestionado personalmente por Nicholas y Andrey — Moscú · San Petersburgo',
     cta: 'Hablemos',
     scrollHint: 'Descubra el método',
   },
   about: {
     eyebrow: 'Quiénes somos',
-    title: 'Italianos en Moscú, por oficio.',
-    body: 'Gusto Giusto es una consultora de gestión italiana con base en Moscú y San Petersburgo. Trabajamos con una red de sommeliers profesionales locales y con una experiencia de varios años en export management de vino en el mercado ruso, operando entre vino, alimentación y travel. Conocemos este mercado desde dentro: las personas, los precios, las reglas.',
+    title: 'Detrás de Gusto Giusto estamos nosotros dos.',
+    body: 'Sin call centers ni intermediarios: cada empresa trabaja directamente con nosotros, desde el primer contacto hasta la firma con el importador. Tenemos base en Moscú y San Petersburgo y trabajamos con una red de sommeliers profesionales locales, entre vino, alimentación y travel. Conocemos este mercado desde dentro: las personas, los precios, las reglas.',
+    team: [
+      {
+        name: 'Andrey Petrov',
+        role: 'Import Manager — más de 15 años de experiencia',
+        bio: 'Lleva más de quince años gestionando la importación de vino en el mercado ruso: conoce personalmente a importadores y compradores, sabe qué compran y en qué condiciones. Es la experiencia que convierte una cata en un contrato.',
+      },
+      {
+        name: 'Nicholas Giuliano',
+        role: 'Referente de AIS Rusia',
+        bio: 'Sommelier y referente para Rusia de la Associazione Italiana Sommelier. Es su primer interlocutor: cuida la relación con las bodegas y coordina las catas profesionales, paso a paso.',
+      },
+    ],
+    togetherCaption: 'Nicholas y Andrey',
+    trust: 'Cuando nos escriben, respondemos nosotros. Cuando se catan sus vinos, estamos nosotros en la mesa.',
     stats: [
       { line: 'Moscú · San Petersburgo', caption: 'Presencia directa en las dos capitales del mercado' },
       { line: 'Sommeliers profesionales locales', caption: 'Una red que cata, evalúa y abre puertas' },
@@ -50,6 +65,7 @@ const es: Dictionary = {
     origin: 'Su bodega',
     destination: 'El mercado ruso',
     phaseLabel: 'Fase',
+    deliverableLabel: 'Qué reciben',
     phases: [
       {
         num: '1',
@@ -64,6 +80,7 @@ const es: Dictionary = {
           'Cata profesional reservada con 3–4 sommeliers en Moscú y San Petersburgo',
           'Informe con una evaluación clara y una recomendación estratégica: seguir o no',
         ],
+        deliverable: 'Un informe de cata profesional con una recomendación nítida: seguir adelante o no.',
       },
       {
         num: '2',
@@ -79,6 +96,7 @@ const es: Dictionary = {
           'Presentaciones profesionales B2B/B2C y fichas técnicas',
           'Hoja de ruta estratégica completa',
         ],
+        deliverable: 'La hoja de ruta estratégica, la Short List de al menos 5 importadores y las presentaciones B2B listas para usar.',
       },
       {
         num: '3',
@@ -94,6 +112,7 @@ const es: Dictionary = {
           'Recogida y análisis del feedback profesional',
           'Informe final con recomendaciones',
         ],
+        deliverable: 'El informe final con el feedback directo de los compradores y los próximos pasos concretos.',
       },
       {
         num: '4',
@@ -108,9 +127,16 @@ const es: Dictionary = {
           'Soporte en contratos y certificación',
           'Documentos de exportación y gestión de pedidos',
         ],
+        deliverable: 'Un export manager dedicado en el mercado ruso, sin abrir una sede en Rusia.',
       },
     ],
     note: 'Plazo total Fases 1–3: 6–8 meses. Condiciones económicas bajo petición.',
+  },
+  photos: {
+    tastingAlt: 'Cata profesional con sommeliers y compradores en Moscú',
+    tastingCaption: 'Cata profesional reservada — Moscú',
+    presentingAlt: 'Nicholas presenta un vino durante una cata',
+    presentingCaption: 'La presentación de sus vinos a los profesionales del mercado',
   },
   services: {
     eyebrow: 'Consultoría 360°',

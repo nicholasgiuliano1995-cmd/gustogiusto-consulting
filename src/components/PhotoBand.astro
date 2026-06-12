@@ -1,0 +1,48 @@
+---
+import { Image } from 'astro:assets';
+import tastingImg from '../assets/photos/degustazione.jpg';
+import presentingImg from '../assets/photos/presentazione.jpg';
+import type { Locale } from '../i18n';
+import { getDict } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const t = getDict(Astro.props.locale);
+---
+
+<section class="bg-cream">
+  <div class="mx-auto grid max-w-7xl gap-8 px-5 pt-20 sm:px-8 md:grid-cols-2 lg:gap-10 lg:pt-28">
+    <figure data-reveal>
+      <div class="overflow-hidden rounded-[4px]">
+        <Image
+          src={tastingImg}
+          alt={t.photos.tastingAlt}
+          widths={[640, 1000, 1600]}
+          sizes="(min-width: 768px) 46vw, 92vw"
+          class="aspect-[3/2] w-full object-cover"
+        />
+      </div>
+      <figcaption class="mt-3 flex items-center gap-3 text-xs font-medium uppercase tracking-eyebrow text-ink/50">
+        <span class="gold-rule !w-6 shrink-0"></span>
+        {t.photos.tastingCaption}
+      </figcaption>
+    </figure>
+    <figure data-reveal>
+      <div class="overflow-hidden rounded-[4px]">
+        <Image
+          src={presentingImg}
+          alt={t.photos.presentingAlt}
+          widths={[640, 1000, 1600]}
+          sizes="(min-width: 768px) 46vw, 92vw"
+          class="aspect-[3/2] w-full object-cover"
+        />
+      </div>
+      <figcaption class="mt-3 flex items-center gap-3 text-xs font-medium uppercase tracking-eyebrow text-ink/50">
+        <span class="gold-rule !w-6 shrink-0"></span>
+        {t.photos.presentingCaption}
+      </figcaption>
+    </figure>
+  </div>
+</section>

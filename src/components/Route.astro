@@ -61,7 +61,7 @@ const routePath =
 
       {
         t.route.phases.map((phase) => (
-          <article class="relative pl-14 pr-5 sm:pl-20 sm:pr-8 lg:flex lg:h-full lg:w-[85vw] lg:shrink-0 lg:items-center lg:px-[6vw]" data-route-station>
+          <article class="relative pl-14 pr-5 sm:pl-20 sm:pr-8 lg:flex lg:h-full lg:w-[80vw] lg:shrink-0 lg:items-center lg:px-[5vw]" data-route-station>
             {/* Node dot: on the vertical line (mobile) / on the SVG line (desktop) */}
             <span
               aria-hidden="true"
@@ -86,6 +86,10 @@ const routePath =
                     </li>
                   ))}
                 </ul>
+                <p class="mt-6 border-l border-gold pl-4 text-sm leading-snug sm:text-base">
+                  <span class="font-medium uppercase tracking-eyebrow text-gold" style="font-size: 0.65rem;">{t.route.deliverableLabel}</span>
+                  <span class="mt-1 block text-cream/85">{phase.deliverable}</span>
+                </p>
               </div>
             </div>
           </article>

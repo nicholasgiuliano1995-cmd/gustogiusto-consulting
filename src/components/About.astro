@@ -1,4 +1,8 @@
 ---
+import { Image } from 'astro:assets';
+import andreyImg from '../assets/team/andrey.jpg';
+import nicholasImg from '../assets/team/nicholas.jpg';
+import insiemeImg from '../assets/team/insieme.jpg';
 import type { Locale } from '../i18n';
 import { getDict } from '../i18n';
 
@@ -7,6 +11,7 @@ interface Props {
 }
 
 const t = getDict(Astro.props.locale);
+const memberImages = [andreyImg, nicholasImg];
 ---
 
 <section id="chi-siamo" class="bg-cream text-ink">
@@ -23,7 +28,48 @@ const t = getDict(Astro.props.locale);
       </div>
     </div>
 
-    <ul class="mt-16 grid gap-10 sm:grid-cols-3 lg:mt-24">
+    {/* The two of us */}
+    <div class="mt-16 grid gap-10 md:grid-cols-2 lg:mt-20 lg:gap-14 xl:grid-cols-12">
+      {
+        t.about.team.map((member, i) => (
+          <article class="xl:col-span-4" data-reveal>
+            <div class="overflow-hidden rounded-[4px] border-t border-t-gold">
+              <Image
+                src={memberImages[i]!}
+                alt={member.name}
+                widths={[480, 800, 1200]}
+                sizes="(min-width: 1280px) 30vw, (min-width: 768px) 45vw, 92vw"
+                class="aspect-[4/5] w-full object-cover"
+              />
+            </div>
+            <h3 class="mt-6 font-display text-2xl font-semibold text-navy sm:text-[1.7rem]">{member.name}</h3>
+            <p class="mt-1 text-xs font-medium uppercase tracking-eyebrow text-gold">{member.role}</p>
+            <p class="mt-4 text-sm leading-[1.75] text-ink/75 sm:text-base">{member.bio}</p>
+          </article>
+        ))
+      }
+
+      <aside class="md:col-span-2 xl:col-span-4 xl:col-start-9" data-reveal>
+        <div class="flex h-full flex-col">
+          <div class="overflow-hidden rounded-[4px] border-t border-t-gold">
+            <Image
+              src={insiemeImg}
+              alt={t.about.togetherCaption}
+              widths={[480, 800, 1200]}
+              sizes="(min-width: 1280px) 30vw, 92vw"
+              class="aspect-[4/5] w-full object-cover md:aspect-[16/7] xl:aspect-[4/5]"
+            />
+          </div>
+          <p class="mt-4 text-xs font-medium uppercase tracking-eyebrow text-ink/50">{t.about.togetherCaption}</p>
+          <p class="mt-4 flex gap-4 font-display text-xl font-medium italic leading-snug text-navy sm:text-[1.35rem]">
+            <span class="gold-rule mt-[0.7em] !w-8 shrink-0"></span>
+            {t.about.trust}
+          </p>
+        </div>
+      </aside>
+    </div>
+
+    <ul class="mt-16 grid gap-10 border-t border-navy/10 pt-12 sm:grid-cols-3 lg:mt-20">
       {
         t.about.stats.map((s) => (
           <li data-reveal>
