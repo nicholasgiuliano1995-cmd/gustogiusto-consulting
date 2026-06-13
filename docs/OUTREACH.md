@@ -29,7 +29,7 @@ Regole d'oro prima di iniziare:
 >
 > Se il tema vi interessa, la prima call conoscitiva è gratuita: mezz'ora per dirvi con franchezza se vediamo spazio per i vostri vini. E se non lo vediamo, ve lo diciamo.
 >
-> Qui trovate come lavoriamo: https://gustogiusto-consulting.pages.dev
+> Qui trovate come lavoriamo: https://gustogiustoconsulting.com
 >
 > Un saluto cordiale,
 >
@@ -66,7 +66,7 @@ Regole d'oro prima di iniziare:
 >
 > Si el tema les interesa, la primera llamada es gratuita: media hora para decirles con franqueza si vemos recorrido para sus vinos. Y si no lo vemos, se lo decimos.
 >
-> Aquí pueden ver cómo trabajamos: https://gustogiusto-consulting.pages.dev/es/
+> Aquí pueden ver cómo trabajamos: https://gustogiustoconsulting.com/es/
 >
 > Un cordial saludo,
 >
@@ -103,7 +103,7 @@ Regole d'oro prima di iniziare:
 >
 > Se o tema interessar, a primeira chamada é gratuita: meia hora para dizermos com franqueza se vemos espaço para os seus produtos. E se não virmos, dizemos também.
 >
-> Aqui vocês podem ver como trabalhamos: https://gustogiusto-consulting.pages.dev/pt/
+> Aqui vocês podem ver como trabalhamos: https://gustogiustoconsulting.com/pt/
 >
 > Cordialmente,
 >
@@ -121,4 +121,4 @@ Regole d'oro prima di iniziare:
 
 ---
 
-*Quando il dominio gustogiustoconsulting.com sarà attivo, sostituire i link pages.dev con il dominio definitivo in tutti i template.*
+*Link aggiornati al dominio di produzione gustogiustoconsulting.com.*

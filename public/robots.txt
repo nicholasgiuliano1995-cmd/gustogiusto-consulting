@@ -1,5 +1,4 @@
 User-agent: *
 Allow: /
 
-# Update this URL when the custom domain goes live
-Sitemap: https://gustogiusto-consulting.pages.dev/sitemap-index.xml
+Sitemap: https://gustogiustoconsulting.com/sitemap-index.xml

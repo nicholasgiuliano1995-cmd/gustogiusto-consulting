@@ -3,9 +3,8 @@ import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
 
-// Live Cloudflare Pages URL — swap for https://gustogiustoconsulting.com once
-// the custom domain is connected (used for canonical, hreflang, OG, sitemap).
-const SITE = 'https://gustogiusto-consulting.pages.dev';
+// Production domain — drives canonical URLs, hreflang, OpenGraph, sitemap.
+const SITE = 'https://gustogiustoconsulting.com';
 
 export default defineConfig({
   site: SITE,

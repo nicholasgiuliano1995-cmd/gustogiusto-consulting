@@ -16,7 +16,7 @@ The production site is generated in the **`dist/`** folder. Upload the **content
 | ~~`TODO_FORM_ID`~~ | done | Form endpoint `https://formspree.io/f/xgobnnqp` is set in `ContactForm.astro` |
 | ~~`TODO_EMAIL`~~ | done | `gustogiusto@yandex.ru` is set in `Footer.astro` and `ContactPage.astro` |
 | ~~`TODO_WHATSAPP`~~ | done | `+39 329 363 9346` is set in `Footer.astro` and `ContactPage.astro` |
-| `https://www.gustogiusto.example` | `astro.config.mjs` | Replace with the real domain (used for canonical, hreflang and OpenGraph URLs) |
+| ~~production domain~~ | done | `SITE` in `astro.config.mjs` is set to `https://gustogiustoconsulting.com` (drives canonical, hreflang, OpenGraph, sitemap) |
 | `public/og.png` | — | Placeholder social-share image (navy + gold). Replace with a branded 1200×630 image when available |
 | `public/favicon.svg` | — | Placeholder "G" mark. Replace with the final logo when available |
 
