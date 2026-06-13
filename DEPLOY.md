@@ -43,7 +43,7 @@ Connect this GitHub repository so every push deploys automatically:
    - **Framework preset:** Astro
    - **Build command:** `npm run build`
    - **Build output directory:** `dist`
-4. Click **Save and Deploy**. The first build takes ~1–2 minutes; you get a `*.pages.dev` URL immediately.
+4. Click **Save and Deploy**. The first build takes ~1–2 minutes; Cloudflare gives you a temporary preview URL immediately.
 5. To use the real domain: Pages project → **Custom domains** → add the domain and follow the DNS instructions (instant if the domain's DNS is already on Cloudflare).
 
 Every later `git push` to `main` triggers a new deployment automatically; pushes to other branches create preview deployments.
