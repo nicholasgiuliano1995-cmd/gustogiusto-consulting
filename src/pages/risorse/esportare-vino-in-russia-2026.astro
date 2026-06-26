@@ -1,0 +1,189 @@
+---
+import ArticleBase from '../../layouts/ArticleBase.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const title = 'Esportare vino in Russia nel 2026: guida completa per le cantine italiane';
+const description =
+  'Mercato, dati aggiornati 2026, dazi e certificazioni (EAC, EGAIS), ricerca importatori e metodo di ingresso. La guida pratica per le cantine italiane che valutano il mercato russo.';
+const path = '/risorse/esportare-vino-in-russia-2026/';
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: title,
+  description,
+  inLanguage: 'it',
+  datePublished: '2026-07-01',
+  dateModified: '2026-07-01',
+  author: [
+    { '@type': 'Person', name: 'Nicholas Giuliano', jobTitle: 'Referente AIS Russia' },
+    { '@type': 'Person', name: 'Andrey Petrov', jobTitle: 'Import Manager' },
+  ],
+  publisher: {
+    '@type': 'Organization',
+    name: 'Gusto Giusto Consulting',
+    url: 'https://gustogiustoconsulting.com',
+  },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': new URL(path, Astro.site).href },
+  image: new URL('/og.png', Astro.site).href,
+};
+---
+
+<ArticleBase title={`${title} | Gusto Giusto Consulting`} description={description} canonicalPath={path} structuredData={structuredData}>
+  <Header locale="it" page="home" />
+
+  <main>
+    <!-- Hero -->
+    <header class="bg-navy pt-16 lg:pt-20">
+      <div class="mx-auto max-w-4xl px-5 py-16 sm:px-8 lg:py-24">
+        <p class="eyebrow">Guida · Mercato Russia</p>
+        <h1 class="mt-5 font-display font-semibold leading-[1.1] text-cream" style="font-size: clamp(2.2rem, 5vw, 3.6rem);">
+          Esportare vino in Russia nel 2026: guida completa per le cantine italiane
+        </h1>
+        <p class="mt-6 max-w-2xl text-lg leading-relaxed text-cream/75">
+          Quanto vale davvero il mercato, cosa è cambiato con dazi e accise, come si trova l’importatore giusto e con quale metodo si entra. Senza allarmismi, senza facili entusiasmi.
+        </p>
+        <p class="mt-8 text-xs uppercase tracking-eyebrow text-cream/50">
+          A cura di Nicholas Giuliano (referente AIS Russia) e Andrey Petrov (import manager, 15+ anni sul mercato russo)
+        </p>
+      </div>
+    </header>
+
+    <!-- Body -->
+    <article class="bg-cream text-ink">
+      <div class="mx-auto max-w-3xl px-5 py-16 sm:px-8 lg:py-24 article-body">
+        <p>
+          «Ha ancora senso esportare vino in Russia nel 2026?» È la domanda che ci pongono più spesso i produttori italiani. La risposta onesta non è né «è un affare facile» né «è un mercato chiuso»: è un mercato <strong>più piccolo e più selettivo</strong> di qualche anno fa, dove però l’Italia resta il primo fornitore e dove la fascia di qualità continua a comprare. Questa guida mette in fila i dati aggiornati, le regole e il metodo per valutarlo con lucidità.
+        </p>
+
+        <h2>Il mercato russo del vino oggi: i numeri del 2026</h2>
+        <p>
+          Partiamo dai fatti, anche da quelli scomodi. Nel 2025 l’export di vino italiano verso la Russia è <strong>calato del 16%</strong>, fermandosi a circa 207 milioni di euro (dati Istat elaborati da WineNews/Vinetur). È parte di un quadro più ampio: lo stesso anno l’export totale di vino italiano ha registrato il primo calo dopo anni di record (−3,7%).
+        </p>
+        <p>
+          Ma il 2026 si è aperto con un segnale netto e controcorrente: a <strong>gennaio 2026 la Russia è cresciuta del +38,4%</strong> (a 12,7 milioni di euro) nel mese peggiore dell’export italiano nel mondo (−18,7%), e il bimestre gennaio-febbraio ha confermato la tendenza (fonte: WineNews su dati Istat). La media a dodici mesi resta negativa: siamo di fronte a una <strong>normalizzazione dopo forti oscillazioni</strong>, non a un boom.
+        </p>
+        <p>
+          Il dato strutturale che conta di più, però, è un altro: <strong>l’Italia è il primo fornitore di vino della Russia</strong>, con una quota intorno al 39% delle importazioni, ed è prima anche negli spumanti (fonti: WineNews, wein.plus). Il vino italiano, in Russia, è desiderato e riconosciuto.
+        </p>
+
+        <h2>Perché la Russia ha ancora senso per il vino di qualità</h2>
+        <p>
+          Dazi e accise hanno spinto fuori dal mercato il vino economico: i margini non reggevano più. Quello che resta — e che cresce — è la <strong>fascia premium e boutique</strong>, concentrata nella ristorazione (Ho.Re.Ca.) di Mosca e San Pietroburgo (fonti: Wine Intelligence, Renub Research). È esattamente il segmento delle cantine medio-piccole di qualità.
+        </p>
+        <p>
+          Tradotto per un produttore: in Russia oggi <strong>non si compete sul prezzo</strong> — non potreste e non dovreste — <strong>si compete sul posizionamento</strong>. Un mercato che si è ristretto ma premiumizzato seleziona proprio chi fa vino di territorio, non volume.
+        </p>
+
+        <h2>Le difficoltà reali (e perché vanno gestite a monte)</h2>
+        <p>
+          Entrare in Russia oggi richiede di conoscere alcune regole precise. Non sono dettagli: sono la differenza tra un export costruito bene e una figuraccia costosa.
+        </p>
+        <ul>
+          <li><strong>Dazi e accise.</strong> I dazi sui vini dai Paesi «non amici» sono saliti fino al 25% (con un minimo per litro) e da maggio 2024 le accise sul vino sono triplicate (fonte: The Drinks Business). Questo cambia il listino e la marginalità, e va calcolato prima di spedire.</li>
+          <li><strong>Certificazione EAC ed EGAIS.</strong> Il vino destinato alla Russia richiede la certificazione di conformità dell’unione doganale (EAC) e la registrazione nel sistema di tracciabilità degli alcolici (EGAIS). Sono passaggi tecnici che gestisce l’importatore, ma che vanno previsti nella strategia.</li>
+          <li><strong>Etichetta in cirillico.</strong> È obbligatoria una contro-etichetta in lingua russa con le informazioni di legge.</li>
+          <li><strong>La soglia dei 300 euro.</strong> Esportare verso la Russia una bottiglia di valore superiore a 300 euro rientra nelle sanzioni UE sui beni di lusso ed è configurato come reato (fonte: WineNews). Per le cantine con etichette di pregio, questo cambia cosa si può proporre e come: va gestito sul listino, non scoperto in dogana.</li>
+          <li><strong>Pagamenti e logistica.</strong> Sono diventati più complessi e richiedono canali e partner affidabili sul posto.</li>
+        </ul>
+
+        <h2>Come si entra: trovare l’importatore giusto, non «un» importatore</h2>
+        <p>
+          Il rischio numero uno non sono le sanzioni: è <strong>l’importatore sbagliato</strong>. In un mercato complesso, mandare campioni a un indirizzo qualsiasi è denaro buttato. Quello che serve è un percorso strutturato:
+        </p>
+        <ol>
+          <li><strong>Valutazione professionale riservata.</strong> Prima di tutto, capire se i vostri vini hanno mercato: una degustazione con sommelier e buyer professionisti a Mosca e San Pietroburgo, e un report con una raccomandazione netta — proseguire o no.</li>
+          <li><strong>Strategia commerciale.</strong> Analisi del potenziale per città e posizionamento, e una Short List di importatori realmente attivi sul portafoglio italiano e adatti al vostro profilo.</li>
+          <li><strong>Presentazione ai buyer.</strong> Degustazioni individuali e collettive con i buyer giusti, e la raccolta del loro feedback professionale.</li>
+          <li><strong>Gestione continuativa.</strong> Relazioni con i buyer, contratti, certificazioni, documenti di export e ordini — sul posto e nella lingua del mercato.</li>
+        </ol>
+        <p>
+          È il metodo che chiamiamo <a href="/#metodo">«La Rotta»</a>: quattro fasi con criteri chiari per decidere, a ogni passaggio, se e come proseguire.
+        </p>
+
+        <h2>Il modello «Cantine in collettiva»: entrare senza muoversi dalla cantina</h2>
+        <p>
+          Per una cantina medio-piccola, sostenere da sola i costi di logistica, eventi e presenza in fiera in Russia è difficile. Per questo abbiamo costruito un modello che <strong>raggruppa più cantine</strong>: i costi si dividono, le vostre bottiglie vengono presentate ai buyer alle fiere russe, e voi restate in Italia ricevendo i report e i feedback già pronti sul tavolo. Presenza piena, costi sostenibili.
+        </p>
+
+        <h2>Da dove si parte</h2>
+        <p>
+          Il primo passo non è un contratto: è una <strong>conversazione onesta</strong>. In una prima call conoscitiva — gratuita e senza impegno — ci raccontate la vostra cantina e i vostri obiettivi, e vi diciamo con franchezza se vediamo spazio per i vostri vini in Russia. Se non lo vediamo, ve lo diciamo.
+        </p>
+
+        <div class="cta-box">
+          <p class="eyebrow">Prima call conoscitiva</p>
+          <p class="mt-3 font-display text-2xl font-semibold text-navy sm:text-3xl">Valutiamo insieme il potenziale dei vostri vini in Russia.</p>
+          <p class="mt-3 text-base text-ink/70">Gratuita, senza impegno. Rispondiamo entro 24 ore.</p>
+          <a href="/contatti/" class="btn-gold-solid mt-6">Parliamone <span aria-hidden="true">→</span></a>
+        </div>
+
+        <p class="sources">
+          Fonti dei dati citati: WineNews e Vinetur (export vino italiano, dati Istat); WineNews/Istat (gennaio 2026, +38,4%); wein.plus (quota Italia); The Drinks Business (dazi e accise); Wine Intelligence e Renub Research (premiumizzazione e Ho.Re.Ca.). Dati aggiornati a giugno 2026.
+        </p>
+      </div>
+    </article>
+  </main>
+
+  <Footer locale="it" page="home" />
+</ArticleBase>
+
+<style>
+  .article-body :global(p),
+  .article-body :global(li) {
+    font-family: var(--font-sans);
+    font-size: 1.0625rem;
+    line-height: 1.75;
+    color: #2a2a26;
+  }
+  .article-body :global(p) {
+    margin-top: 1.4rem;
+  }
+  .article-body :global(h2) {
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: clamp(1.6rem, 3vw, 2.1rem);
+    line-height: 1.2;
+    color: #1b2a40;
+    margin-top: 3rem;
+    padding-top: 1.4rem;
+    border-top: 1px solid rgba(27, 42, 64, 0.12);
+  }
+  .article-body :global(ul),
+  .article-body :global(ol) {
+    margin-top: 1.4rem;
+    padding-left: 1.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.7rem;
+  }
+  .article-body :global(li) {
+    margin-top: 0;
+  }
+  .article-body :global(strong) {
+    color: #1b2a40;
+    font-weight: 600;
+  }
+  .article-body :global(a) {
+    color: #1b2a40;
+    text-decoration: underline;
+    text-decoration-color: #c9a84c;
+    text-underline-offset: 3px;
+  }
+  .article-body :global(.cta-box) {
+    margin-top: 3rem;
+    border: 1px solid rgba(27, 42, 64, 0.12);
+    border-top: 2px solid #c9a84c;
+    border-radius: 4px;
+    background: #fbf7ea;
+    padding: 2rem;
+  }
+  .article-body :global(.sources) {
+    margin-top: 2.5rem;
+    font-size: 0.85rem;
+    line-height: 1.6;
+    color: rgba(42, 42, 38, 0.55);
+    font-style: italic;
+  }
+</style>

@@ -1,0 +1,67 @@
+---
+import ArticleBase from '../../layouts/ArticleBase.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const articles = [
+  {
+    href: '/risorse/esportare-vino-in-russia-2026/',
+    eyebrow: 'Guida',
+    title: 'Esportare vino in Russia nel 2026: guida completa per le cantine italiane',
+    excerpt:
+      'Dati di mercato aggiornati, dazi e certificazioni, ricerca dell’importatore e metodo di ingresso. Tutto quello che una cantina deve sapere prima di entrare nel mercato russo.',
+    date: '2026-07-01',
+  },
+];
+
+const structuredData = {
+  '@context': 'https://schema.org',
+  '@type': 'CollectionPage',
+  name: 'Risorse — Gusto Giusto Consulting',
+  description:
+    'Analisi, dati e guide sul mercato russo del vino e del food per i produttori italiani.',
+  url: new URL('/risorse/', Astro.site).href,
+};
+---
+
+<ArticleBase
+  title="Risorse — Mercato russo del vino: dati e guide | Gusto Giusto Consulting"
+  description="Analisi, dati aggiornati e guide pratiche sul mercato russo del vino e del food per produttori ed export manager italiani."
+  canonicalPath="/risorse/"
+  ogType="website"
+  structuredData={structuredData}
+>
+  <Header locale="it" page="home" />
+  <main class="bg-cream pt-16 text-ink lg:pt-20">
+    <section class="mx-auto max-w-4xl px-5 py-20 sm:px-8 lg:py-28">
+      <p class="eyebrow">Risorse</p>
+      <h1 class="mt-5 font-display font-semibold leading-tight text-navy" style="font-size: clamp(2.2rem, 4.5vw, 3.5rem);">
+        Il mercato russo del vino, spiegato con i dati.
+      </h1>
+      <p class="mt-6 max-w-2xl text-lg leading-relaxed text-ink/75">
+        Analisi e guide pratiche per i produttori italiani che valutano la Russia: numeri aggiornati, regole, metodo. Senza allarmismi e senza facili entusiasmi.
+      </p>
+      <span class="gold-rule mt-10"></span>
+
+      <ul class="mt-12 space-y-10">
+        {
+          articles.map((a) => (
+            <li>
+              <a href={a.href} class="group block">
+                <p class="eyebrow">{a.eyebrow}</p>
+                <h2 class="mt-3 font-display text-3xl font-semibold leading-tight text-navy transition-colors group-hover:text-gold sm:text-4xl">
+                  {a.title}
+                </h2>
+                <p class="mt-4 max-w-2xl text-base leading-relaxed text-ink/70">{a.excerpt}</p>
+                <span class="mt-4 inline-flex items-center gap-2 text-xs font-medium uppercase tracking-eyebrow text-gold">
+                  Leggi la guida <span aria-hidden="true">→</span>
+                </span>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </section>
+  </main>
+  <Footer locale="it" page="home" />
+</ArticleBase>
